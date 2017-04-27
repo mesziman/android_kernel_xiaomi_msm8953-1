@@ -1369,6 +1369,22 @@ config TOUCHSCREEN_GT9XX_v28
           If unsure, say N.
 
 source "drivers/input/touchscreen/gt9xx_v2.8/Kconfig"
+config TOUCHSCREEN_MAXIM_STI
+	tristate "Maxim based STI touchscreens"
+	depends on SPI_MASTER
+	help
+	  Say Y here if you have a touchscreen interface using the
+	  Maxim STI based touch controller.
+
+	  If unsure, say N
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called maxim_sti.
+
+source "drivers/input/touchscreen/ft5x46/Kconfig"
+
+source "drivers/input/touchscreen/focaltech_touch/Kconfig"
+source "drivers/input/touchscreen/gt9xx_v2.8/Kconfig"
 
 config TOUCHSCREEN_HIMAX_CHIPSET
 	bool "Himax touchpanel CHIPSET"
