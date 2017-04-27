@@ -812,6 +812,7 @@ config QPNP_MISC
 	  peripheral. The MISC peripheral holds the USB ID interrupt
 	  and the driver provides an API to check if this interrupt
 	  is available on the current PMIC chip.
+
 config TSPDRV
 	tristate "TouchSense driver support"
 	default y
