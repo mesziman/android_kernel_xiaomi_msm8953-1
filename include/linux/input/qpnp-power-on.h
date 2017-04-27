@@ -62,7 +62,11 @@ enum pon_restart_reason {
 
 	/* 32 ~ 63 for OEMs/ODMs secific features */
 	PON_RESTART_REASON_OEM_MIN		= 0x20,
+	PON_RESTART_REASON_NORMAL		= 0x20,	
+	PON_RESTART_REASON_PANIC		= 0x21,
 	PON_RESTART_REASON_OEM_MAX		= 0x3f,
+
+	
 };
 
 #ifdef CONFIG_INPUT_QPNP_POWER_ON
@@ -71,6 +75,9 @@ int qpnp_pon_is_warm_reset(void);
 int qpnp_pon_trigger_config(enum pon_trigger_source pon_src, bool enable);
 int qpnp_pon_wd_config(bool enable);
 int qpnp_pon_set_restart_reason(enum pon_restart_reason reason);
+int qpnp_pon_is_lpk(void);
+	
+int qpnp_pon_is_ps_hold_reset(void);
 bool qpnp_pon_check_hard_reset_stored(void);
 
 #else
@@ -96,6 +103,11 @@ static inline bool qpnp_pon_check_hard_reset_stored(void)
 {
 	return false;
 }
+
+	
+static inline int qpnp_pon_is_lpk(void) { return -ENODEV; }
+	
+static inline int qpnp_pon_is_ps_hold_reset(void) { return -ENODEV; }
 #endif
 
 #endif
