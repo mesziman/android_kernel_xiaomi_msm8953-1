@@ -100,6 +100,11 @@ endif
 ifdef CONFIG_QTI_RPMH_API
 	obj-$(CONFIG_QTI_RPM_STATS_LOG) += rpmh_master_stat.o
 endif
+obj-$(CONFIG_MSM_SCM_XPU) += scm-xpu.o
+obj-$(CONFIG_MSM_KERNEL_PROTECT) += kernel_protect.o
+obj-$(CONFIG_MSM_RTB) += msm_rtb-hotplug.o
+obj-$(CONFIG_MSM_REMOTEQDSS) += remoteqdss.o
+obj-$(CONFIG_MSM_CAPTOUCH) += captouch.o
 obj-$(CONFIG_QCOM_SMCINVOKE) += smcinvoke.o
 obj-$(CONFIG_QMP_DEBUGFS_CLIENT) += qmp-debugfs-client.o
 obj-$(CONFIG_MSM_REMOTEQDSS) += remoteqdss.o
