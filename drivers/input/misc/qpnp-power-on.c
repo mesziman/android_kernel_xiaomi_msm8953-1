@@ -35,7 +35,6 @@
 #include <linux/qpnp/qpnp-misc.h>
 #include <linux/power_supply.h>
 	
-#include <linux/wakelock.h>
 
 #define PMIC_VER_8941           0x01
 #define PMIC_VERSION_REG        0x0105
@@ -249,7 +248,7 @@ module_param_named(
 );
 
 
-static struct wake_lock volume_down_wl;
+static struct wakeup_source volume_down_wl;
 static const char *wake_lock_name = "volume_down_locker";
 static struct qpnp_pon *sys_reset_dev;
 static DEFINE_SPINLOCK(spon_list_slock);
